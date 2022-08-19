@@ -37,6 +37,17 @@ while True:
             pygame.quit()
             exit()
 
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_q] or keys[pygame.K_ESCAPE]:
+            pygame.quit()
+            exit()
+
+    if keys[pygame.K_LEFT]:
+        gracz_rect.left -= 5
+
+    if keys[pygame.K_RIGHT]:
+        gracz_rect.left += 5
+
     pozycja_x = pozycja_x + predkosc*kierunek
     if pozycja_x > szerokosc/2 - 100/2:
         #pozycja_x = 0
@@ -50,7 +61,7 @@ while True:
     screen.blit(text, (300, 50))
     screen.blit(slimak, (pozycja_x + szerokosc/2 -72/2, 265))
     screen.blit(slimak, (pozycja_x + 150 + szerokosc/2 -72/2, 265))
-    gracz_rect.left += 1
+    
     screen.blit(gracz, gracz_rect)
     
     #screen.blit(test_surface, (pozycja_x + szerokosc/2 - 100/2, wysokosc/2 - 200/2))
